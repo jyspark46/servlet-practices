@@ -60,7 +60,7 @@ public class GuestbookDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getName());
 			pstmt.setString(2, vo.getPassword());
-			pstmt.setString(3, vo.getMessage());
+			pstmt.setString(3, vo.getContents());
 			
 			int count = pstmt.executeUpdate();
 			
@@ -97,7 +97,7 @@ public class GuestbookDao {
 			conn = getConnection();
 			
 			String sql =
-				"    select no, name, message, date_format(reg_date, '%Y/%m/%d %H:%i:%s')" + 
+				"    select no, name, contents, date_format(reg_date, '%Y/%m/%d %H:%i:%s')" + 
 				"      from guestbook" + 
 				"  order by reg_date desc";
 			pstmt = conn.prepareStatement(sql);
@@ -112,7 +112,7 @@ public class GuestbookDao {
 				GuestbookVo vo = new GuestbookVo();
 				vo.setNo(no);
 				vo.setName(name);
-				vo.setMessage(message);
+				vo.setContents(message);
 				vo.setRegDate(regDate);
 				
 				result.add(vo);
