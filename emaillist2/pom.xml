@@ -7,7 +7,7 @@
 		<artifactId>servlet-practices</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>guestbook1</artifactId>
+	<artifactId>emaillist2</artifactId>
 	<packaging>war</packaging>
 	
 	<properties>
@@ -26,7 +26,6 @@
 	</dependencies>
 		
 	<build>
-		<finalName>guestbook1</finalName>
+		<finalName>emaillist2</finalName>
 	</build>
-	
 </project>
