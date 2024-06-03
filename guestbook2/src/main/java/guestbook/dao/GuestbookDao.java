@@ -17,7 +17,7 @@ public class GuestbookDao {
 		try (
 			Connection conn = getConnection();	
 			PreparedStatement pstmt = conn.prepareStatement("delete from guestbook where no = ? and password = ?");
-		){
+		) {
 			pstmt.setLong(1, no);
 			pstmt.setString(2, password);
 			result = pstmt.executeUpdate();
@@ -35,8 +35,7 @@ public class GuestbookDao {
 			Connection conn = getConnection();
 			PreparedStatement pstmt1 = conn.prepareStatement("insert into guestbook values(null, ?, ?, ?, now())");
 			PreparedStatement pstmt2 = conn.prepareStatement("select last_insert_id() from dual");
-			) {
-			
+		) {
 			pstmt1.setString(1, vo.getName());
 			pstmt1.setString(2, vo.getPassword());
 			pstmt1.setString(3, vo.getContents());
@@ -63,7 +62,6 @@ public class GuestbookDao {
 				"  order by reg_date desc");
 			ResultSet rs = pstmt.executeQuery();
 		) {
-			
 			while(rs.next()) {
 				Long no = rs.getLong(1);
 				String name = rs.getString(2);
@@ -78,7 +76,6 @@ public class GuestbookDao {
 				
 				result.add(vo);
 			}
-			
 		} catch (SQLException e) {
 			System.out.println("Error:" + e);
 		}	
